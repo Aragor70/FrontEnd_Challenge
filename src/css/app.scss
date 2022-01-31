@@ -1,0 +1,49 @@
+@import "base/_colors.scss";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-size: 1em;
+  line-height: 1.4;
+  background-color: $lightBackground;
+  color: $fontColor;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+  color: $fontColor;
+}
+
+input, textarea {
+  font-family: 'Lato', sans-serif;
+  background-color: transparent;
+}
+
+.visible
+{
+  animation: slideNav 250ms ease-in-out both;
+}
+
+@keyframes slideNav {
+  from {width: 25px; opacity: 0.25;}
+  to {width: 280px; opacity: 1;}
+}
+
+input[type="checkbox"]{
+  width: 1.2em;
+  height: 1.2em;
+  margin-right: 16px;
+}
+
+.checkImg
+{
+  width: 16px;
+  height: 16px;
+  margin-left: 4px;
+}
