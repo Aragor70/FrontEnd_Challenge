@@ -55,14 +55,20 @@ export default class Discover extends React.Component {
   
   searchMovies = async (target) => {
 
+    if (target.value === '') {
+      const movies = await fetcher.getPopularMovies();
+
+      return this.setState({ results: movies.results, totalCount: movies.total_results })
+    }
+
     if (target.id === 'year_search_input') {
-      console.log(target.value)
+      
       return this.searchMoviesByAttributes(null, target.value, target.id)
 
     } else if (target.id === 'keyword_search_input') {
 
       const movies = await fetcher.getMoviesByKeywords(target.value);
-      console.log(movies)
+      
       this.setState({ results: movies.results, totalCount: movies.total_results })
 
     }
@@ -100,13 +106,11 @@ export default class Discover extends React.Component {
     
     const genres = await fetcher.getMoviesGenres()
 
-
     this.setState({
       results: movies.results, 
       totalCount: movies.total_results,
       genreOptions: genres.genres
     })
-    
 
   }
 
